@@ -20,8 +20,8 @@ function! Spaces()
 endfunction
 
 "NERDTree navigation
-map <leader>g :NERDTreeToggle<CR>
-map <leader>l :NERDTreeFind<CR>
+map <leader>e :NERDTreeToggle<CR>
+map <leader>f :NERDTreeFind<CR>
 " NERDTree
 :let NERDChristmasTree=1
 :let NERDTreeCaseSensitiveSort=1
@@ -49,12 +49,18 @@ let g:phpqa_messdetector_autorun = 0
 let g:phpqa_codecoverage_autorun = 0
 let g:phpqa_codesniffer_autorun = 0
 
-set background=light
-set t_Co=256
-colorscheme solarized
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
+if has('gui_running')
+	set background=light
+	set t_Co=256
+	colorscheme solarized
+	set guioptions-=T  "remove toolbar
+	set guioptions-=r  "remove right-hand scroll bar
+	set guioptions-=L  "remove left-hand scroll bar
+else
+	set background=dark
+	set t_Co=256
+	colorscheme neverland-darker
+endif
 
 "paththogen
 filetype off
